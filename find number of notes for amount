@@ -1,0 +1,22 @@
+Find the number of Notes
+
+import numpy as np
+notes=[200,100,50,20,10,5,2,1]
+amount=int(input())
+x=0
+y=0
+p=[]
+
+while x!=amount:
+    if y==0:
+        z = np.max([i for i in notes if i<=amount])
+        x+=z
+        y=amount-x
+        p.append(z)
+    else:
+        z = np.max([i for i in notes if i<=y])
+        x+=z
+        y=amount-x
+        p.append(z)
+
+print(p)
