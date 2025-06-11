@@ -1,0 +1,4 @@
+test_project : {From: no-reply@merckgroup.com,To: shivasharan.reddy@merckgroup.com,projectName: Test_Project}
+smtp_connection: {smtp_server: "smtpgw.merckgroup.com",port: 25}
+file_dir_path: {raw_path: "C:\\Users\\sreddy\\OneDrive - MerckGroup\\New folder\\data\\raw_logs",csv_path: "C:\\Users\\sreddy\\OneDrive - MerckGroup\\New folder\\data\\csv_logs",processed_path: "C:\\Users\\sreddy\\OneDrive - MerckGroup\\New folder\\data\\processted_logs",toBeAnalyzed: "C:\\Users\\sreddy\\OneDrive - MerckGroup\\New folder\\data\\tobeanalyzed"}
+elastic_connection: {host_name: "deda1x3263.merckgroup.com",username: "aa-nlp",password: "aa-nlp", pem_file: "C:\\installed\\deda1x3263_ES-SB.pem"}

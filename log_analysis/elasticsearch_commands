@@ -1,0 +1,124 @@
+create database solution_base
+create table solutions
+create table unresolved_errors
+
+solutions:
+ERRID
+ERR_MESSAGE
+SOLUTIONS
+COMMENTS
+
+unresolved_errors:
+ERRID
+ERR_MESSAGE
+PROJECT_NAME
+
+
+
+
+==================================================================
+PUT solution_base
+
+PUT /solution_base/solutions/1{
+            "mappings": {
+            "solutions": {
+            "dynamic": "strict",
+                        "properties": {
+                               "ERRID":  { "type":"integer"},
+                               "ERR_MESSAGE":  { "type": "string"},
+							   "SOLUTIONS":  { "type": "string"},
+							   "COMMENTS":  { "type": "string"}
+                                     }
+                        }
+            }
+            }
+
+-applicationmaster: user class threw exception: java.lang.reflect.invocationtargetexception  java.lang.reflect.invocationtargetexception caused by: java.text.parseexception: unparseable date: ""
+-applicationmaster: user class threw exception: java.lang.reflect.invocationtargetexception  java.lang.reflect.invocationtargetexception caused by: java.lang.numberformatexception: for input string: ""
+-applicationmaster: user class threw exception: com.merck.mcloud.gxp.pipelinecore.customexceptions.atlasexception: expected exactly one entity, but dsl query returned 0 elements!  com.merck.mcloud.gxp.pipelinecore.customexceptions.atlasexception: expected exactly one entity, but dsl query returned 0 elements!
+-applicationmaster: sparkcontext did not initialize after waiting for 0 ms. please check earlier log output for errors. failing the application.
+coarsegrainedexecutorbackend: received signal 0: sigterm
+-applicationmaster: user class threw exception: java.lang.outofmemoryerror: gc overhead limit exceeded
+actorsystemimpl: uncaught fatal error from thread [sparkdriveractorsystem-akka.remote.default-remote-dispatcher-0] shutting down actorsystem [sparkdriveractorsystem]  java.nio.channels.closedchannelexception
+-livelistenerbus: sparklistenerbus has already stopped! dropping event sparklistenerexecutormetricsupdate(0,wrappedarray())  java.util.concurrent.timeoutexception 
+utils: uncaught exception in thread pool-0-thread-0  
+transportresponsehandler: still have 0 requests outstanding when connection from awdex0.aws.merckcloud.com TOK_UNIXPATH :TOK_PORT is closed  java.io.ioexception: connection reset by peer java.nio.channels.closedchannelexception java.io.ioexception: failed to send rpc 0 to awdex0.aws.merckcloud.com TOK_UNIXPATH :TOK_PORT: java.nio.channels.closedchannelexception caused by: java.nio.channels.closedchannelexception caused by: java.io.ioexception: failed to send rpc 0 to awdex0.aws.merckcloud.com TOK_UNIXPATH :TOK_PORT: java.nio.channels.closedchannelexception caused by: java.nio.channels.closedchannelexception java.nio.channels.closedchannelexception java.io.ioexception: failed to send rpc 0 to awdex0.aws.merckcloud.com TOK_UNIXPATH :TOK_PORT: java.nio.channels.closedchannelexception caused by: java.nio.channels.closedchannelexception java.nio.channels.closedchannelexception java.io.ioexception: failed to send rpc 0 to awdex0.aws.merckcloud.com TOK_UNIXPATH :TOK_PORT: java.nio.channels.closedchannelexception caused by: java.nio.channels.closedchannelexception java.nio.channels.closedchannelexception java.io.ioexception: failed to send rpc 0 to awdex0.aws.merckcloud.com TOK_UNIXPATH :TOK_PORT: java.nio.channels.closedchannelexception caused by: java.nio.channels.closedchannelexception caused by: java.io.ioexception: failed to send rpc 0 to awdex0.aws.merckcloud.com TOK_UNIXPATH :TOK_PORT: java.nio.channels.closedchannelexception caused by: java.nio.channels.closedchannelexception java.nio.channels.closedchannelexception java.io.ioexception: failed to send rpc 0 to awdex0.aws.merckcloud.com TOK_UNIXPATH :TOK_PORT: java.nio.channels.closedchannelexception caused by: java.nio.channels.closedchannelexception 
+actorsystemimpl: exception on lars’ timer thread
+-actorsystemimpl: uncaught fatal error from thread [sparkdriveractorsystem-scheduler-0] shutting down actorsystem [sparkdriveractorsystem]  
+coarsegrainedexecutorbackend: received signal 0: sigterm
+-applicationmaster: user class threw exception: java.lang.reflect.invocationtargetexception  java.lang.reflect.invocationtargetexception caused by: java.lang.numberformatexception: for input string: "" 
+-preparetrackwisehcnl_auditexport$: excel sheet name is incorrect ${sheet.getsheetname}  java.lang.nullpointerexception 
+-preparetrackwisehcnl_capa$: excel sheet name is incorrect ${sheet.getsheetname}  java.lang.nullpointerexception
+-preparetrackwisehcnl_auditresponse$: excel sheet name is incorrect ${sheet.getsheetname}  java.lang.nullpointerexception 
+-preparetrackwisehcnl_auditexport$: excel sheet name is incorrect ${sheet.getsheetname}  java.lang.nullpointerexception 
+-preparedeviationtracker$: excel sheet name is incorrect ${sheet.getsheetname}  java.lang.nullpointerexception
+
+
+
+
+
+POST _bulk
+{ "index" : { "_index" : "test", "_id" : "1" } }
+{ "field1" : "value1" }
+{ "delete" : { "_index" : "test", "_id" : "2" } }
+{ "create" : { "_index" : "test", "_id" : "3" } }
+{ "field1" : "value3" }
+{ "update" : {"_id" : "1", "_index" : "test"} }
+{ "doc" : {"field2" : "value2"} }
+
+
+POST _bulk
+{"index" : { "_index" : "solution_base","_type" : "solutions", "_id" : "5"}}
+{"ERRID":"ERR1", "ERR_MESSAGE":"applicationmaster: user class threw exception: java.lang.reflect.invocationtargetexception  java.lang.reflect.invocationtargetexception caused by: java.text.parseexception: unparseable date: "" ", "SOLUTIONS":"sol1", "COMMENTS":"" }
+{"ERRID":"ERR2", "ERR_MESSAGE":"applicationmaster: user class threw exception: java.lang.reflect.invocationtargetexception  java.lang.reflect.invocationtargetexception caused by: java.lang.numberformatexception: for input string: \"\" ", "SOLUTIONS":"sol2", "COMMENTS":"" } 
+{"ERRID":"ERR3","ERR_MESSAGE":"applicationmaster: user class threw exception: com.merck.mcloud.gxp.pipelinecore.customexceptions.atlasexception: expected exactly one entity, but dsl query returned 0 elements!  com.merck.mcloud.gxp.pipelinecore.customexceptions.atlasexception: expected exactly one entity, but dsl query returned 0 elements!","SOLUTIONS":"sol3","COMMENTS":"" }
+{"ERRID":"ERR4", "ERR_MESSAGE":"applicationmaster: sparkcontext did not initialize after waiting for 0 ms. please check earlier log output for errors. failing the application", "SOLUTIONS":"sol4", "COMMENTS":"" }
+{"ERRID":"ERR5", "ERR_MESSAGE":"applicationmaster: user class threw exception: java.lang.outofmemoryerror: gc overhead limit exceeded", "SOLUTIONS":"sol5", "COMMENTS":"" }
+{"ERRID":"ERR6", "ERR_MESSAGE":"applicationmaster: user class threw exception: java.lang.reflect.invocationtargetexception  java.lang.reflect.invocationtargetexception caused by: java.lang.numberformatexception: for input string: \"\"", "SOLUTIONS":"sol6", "COMMENTS":"" }
+{"ERRID":"ERR7", "ERR_MESSAGE":"preparedeviationtracker$: excel sheet name is incorrect ${sheet.getsheetname}  java.lang.nullpointerexception", "SOLUTIONS":"sol7", "COMMENTS":"" }
+{"ERRID":"ERR8", "ERR_MESSAGE":"preparetrackwisehcnl_auditexport$: excel sheet name is incorrect ${sheet.getsheetname}  java.lang.nullpointerexception", "SOLUTIONS":"sol8", "COMMENTS":"" }
+{"ERRID":"ERR9", "ERR_MESSAGE":"actorsystemimpl: uncaught fatal error from thread [sparkdriveractorsystem-scheduler-0] shutting down actorsystem [sparkdriveractorsystem]  ", "SOLUTIONS":"sol9", "COMMENTS":"" }
+{"ERRID":"ERR10", "ERR_MESSAGE":"livelistenerbus: sparklistenerbus has already stopped! dropping event sparklistenerexecutormetricsupdate(0,wrappedarray())  java.util.concurrent.timeoutexception", "SOLUTIONS":"sol10", "COMMENTS":"" }
+
+
+
+GET /solution_base/solutions
+{
+   "query": {
+       "more_like_this" : {
+           "fields" : ["ERR_MESSAGE"],
+           "like" : [""applicationmaster: user class threw exception: java.lang.reflect.invocationtargetexception  java.lang.reflect.invocationtargetexception caused by: java.lang.numberformatexception: for input string: \"\""],
+           "min_term_freq" : 1,
+           "min_doc_freq":1
+           
+       }
+   }
+}
+
+
+curl -X GET "localhost:9200/my_index/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "script_score": {
+      "query" : {
+        "bool" : {
+          "filter" : {
+            "term" : {
+              "status" : "published"
+            }
+          }
+        }
+      },
+      "script": {
+        "source": "1 / (1 + l2norm(params.queryVector, \u0027my_dense_vector\u0027))",
+        "params": {
+          "queryVector": [4, 3.4, -0.2]
+        }
+      }
+    }
+  }
+}
+'
+
+
+
