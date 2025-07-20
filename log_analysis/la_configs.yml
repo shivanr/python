@@ -1,0 +1,4 @@
+test_project : {From: no-reply@org.com,To: your_email@org.com,projectName: Test_Project}
+smtp_connection: {smtp_server: "smtp_server_name",port: 25}
+file_dir_path: {raw_path: "C:\\Users\\data\\raw_logs",csv_path: "C:\\uout_email\\data\\csv_logs",processed_path: "C:\\your_folderr\\data\\processted_logs",toBeAnalyzed: "C:\\your_folder\New folder\\data\\tobeanalyzed"}
+elastic_connection: {host_name: "host_name.com",username: "username",password: "user-pswd", pem_file: "C:\\installed\\your-pem-SB.pem"}
