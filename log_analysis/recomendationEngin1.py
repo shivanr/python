@@ -86,10 +86,10 @@ def search_kb(err_message):
     return response
  
 #if __name__ == "__main__":
-#    inputLogPath = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs"
+#    inputLogPath = r"C:\your_folder\process_logs"
 #    inputlogfileName="application_1580556634479_40389_processed.csv"
-#    DBFullPath=r'C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs\rdb.csv'
-#    toBeAnalyzed=r'C:\Users\sreddy\OneDrive - MerckGroup\New folder\tobeanalyzed'
+#    DBFullPath=r'C:\your_folder\process_logs\rdb.csv'
+#    toBeAnalyzed=r'C:\your_folder\tobeanalyzed'
 #    logDf=read_logfile(inputLogPath,inputlogfileName)
 #    kbDf=read_kb(DBFullPath)
 #    dedupLogDf=dedupError(logDf)    

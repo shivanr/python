@@ -10,11 +10,11 @@ class elastic_utils:
         self.passwd=passwd
         self.indexName="solution_base"
     def connect_elasticsearch(self):
-        pem_file=self.certificate         #r"C:\installed\deda1x3263_ES-SB.pem"
+        pem_file=self.certificate         #r"C:\installed\your-pem-SB.pem"
         context_dev = create_default_context(cafile=pem_file)
-        host_name=self.host               #'deda1x3263.merckgroup.com'
-        username=self.username            #'aa-nlp'
-        password=self.passwd              #'aa-nlp'
+        host_name=self.host               
+        username=self.username            
+        password=self.passwd              
         es = Elasticsearch([host_name],http_auth=(username, password), scheme="https",port=9200, ssl_context=context_dev, timeout=50, max_retries=5, retry_on_timeout=True)
         if es.ping():
             print('Connection with ElasticSearch server established.')
@@ -50,9 +50,6 @@ class elastic_utils:
         solDF = pd.DataFrame(columns=['err_message', 'solutions', 'score'])
         #print(response)
         for items in response["hits"]["hits"]:
-            #print(items["_source"]["SOLUTIONS"])
-            #print(items["_score"])
-            #print(items["_source"]["ERR_MESSAGE"])
             solDF = solDF.append({'err_message' : items["_source"]["ERR_MESSAGE"] , 'solutions' : items["_source"]["SOLUTIONS"], 'score' : items["_score"]} , ignore_index=True)
         return solDF    
     

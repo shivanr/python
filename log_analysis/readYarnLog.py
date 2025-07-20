@@ -6,8 +6,6 @@ def read_yarnlog(InlogFile,outLogFile):
     fullInFileName=InlogFile
     fullOutFileName=outLogFile
     pr = PatternRepo()  # use the std. logstash grok patterns
-    #filename = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\log_files\1application_1568810042014_190726.log"
-    #outcsv = open("1application_1568810042014_190726.csv", "w")
     outcsv = open(fullOutFileName, "w")
     lg = LineGrokker('%{LOGLEVEL:level} %{SPACE}%{JAVALOGMESSAGE:JavaMessage}%{GREEDYDATA:logdata}', pr)
     lg4 = LineGrokker('%{GREEDYDATA:logdata}', pr)
@@ -62,13 +60,3 @@ def read_yarnlog(InlogFile,outLogFile):
                 pline.append(cline)
     outcsv.close()
     
-#if __name__=="__min__":
-#    logInFilePth = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\log_files"
-#    logInFileName = "1application_1568810042014_190726.log"
-#    logOutFilePth = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\log_files"
-#    logOutFileName = "1application_1568810042014_190726.csv"
-#    
-#    fullInLogFileName=os.path.join(logInFilePth,logInFileName)
-#    fullOutLogFileName=os.path.join(logOutFilePth,logOutFileName)
-#    
-#    read_yarnlog(fullInLogFileName,fullOutLogFileName)

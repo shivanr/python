@@ -15,7 +15,7 @@ import logging
 
 
 
-log_file_path=r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\data\la_runlog.log"
+log_file_path=r"C:\user_folder\data\la_runlog.log"
 logging.basicConfig(filename=log_file_path,level=logging.INFO,format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
    
 logging.info('############################ Log Analysis Begin ############################')
@@ -28,7 +28,7 @@ def read_cofig(confFile):
         logging.error("AnalyzeLog.read_cofig: Error reading config file: ", err)
         exit()
 
-confs = read_cofig(r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\code\la_configs.yml")
+confs = read_cofig(r"C:\user_folder\code\la_configs.yml")
 
 smtpHost=confs["smtp_connection"]["smtp_server"]
 smtpPort=confs["smtp_connection"]["port"]

@@ -10,8 +10,6 @@ def read_yarnlog(InlogFile,outLogFile):
     fullInFileName=InlogFile
     fullOutFileName=outLogFile
     pr = PatternRepo()  # use the std. logstash grok patterns
-    #filename = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\log_files\1application_1568810042014_190726.log"
-    #outcsv = open("1application_1568810042014_190726.csv", "w")
     outcsv = open(fullOutFileName, "w")
     lg = LineGrokker('%{LOGLEVEL:level} %{SPACE}%{JAVALOGMESSAGE:JavaMessage}%{GREEDYDATA:logdata}', pr)
     lg4 = LineGrokker('%{GREEDYDATA:logdata}', pr)
@@ -61,8 +59,6 @@ def read_yarnlog(InlogFile,outLogFile):
 
 
 def preprocessLog(inLogFile,outLogFile):
-#    infile=r'C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs\1application_1568810042014_190734.csv'
-#    outfile=r'C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs\2application_1568810042014_190734_processed.csv'
     with open(inLogFile,'r') as read_f:
         lines=read_f.readlines()
     with open(outLogFile,'w') as write_f:
@@ -130,9 +126,9 @@ def isSimilarityFound(similarityMatrix):
     return is_all_zero
                   
 if __name__=="__min__":
-    rawFilePth = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\log_files"
+    rawFilePth = r"C:\your_folder\log_files"
     rawFileName = "1application_1568810042014_190726.log"
-    logCsvFilePath = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\log_files"
+    logCsvFilePath = r"C:\your_folder\log_files"
     logCsvFileName = "1application_1568810042014_190726.csv"
     
     fullrawFileName=os.path.join(rawFilePth,rawFileName)
@@ -141,9 +137,7 @@ if __name__=="__min__":
     read_yarnlog(fullrawFileName,fullcsvFileName)
     
     #############################################################################
-    #logInFilePth = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs"
-    #logInFileName = "1application_1568810042014_190734.csv"
-    processedFilePth = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs"
+    processedFilePth = r"C:\your_folder\process_logs"
     processedFileName = "2application_1568810042014_190734_processed.csv"
     
     #fullInLogFileName=os.path.join(logInFilePth,logInFileName)
@@ -152,10 +146,7 @@ if __name__=="__min__":
     preprocessLog(fullcsvFileName,fullprocessedFileName)
 
     #############################################################################
-    #inputLogPath = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs"
-    #inputlogfileName="1application_1568810042014_190726_processed.csv"
-    #fullInLogFileName=os.path.join(inputLogPath,inputlogfileName)
-    DBFullPath=r'C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs\rdb.csv'    
+    DBFullPath=r'C:\your_folder\process_logs\rdb.csv'    
     fullInLogFileName=fullprocessedFileName
     logDf=read_logfile(fullInLogFileName)
     kbDf=read_kb(DBFullPath)
@@ -170,7 +161,6 @@ if __name__=="__min__":
                  categorize error message
                  Notify error message with Classifier findings'''
             )
-        #os.popen('cp '+ os.path.join(inputLogPath,inputlogfileName) +' '+ os.path.join(toBeAnalyzed,inputlogfileName))
                
     else:
         solution=recomendSolution(similarityMatrix,kbDf)        

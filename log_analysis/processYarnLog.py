@@ -4,8 +4,6 @@ import numpy as np
 
 
 def preprocessLog(inLogFile,outLogFile):
-#    infile=r'C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs\1application_1568810042014_190734.csv'
-#    outfile=r'C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs\2application_1568810042014_190734_processed.csv'
     with open(inLogFile,'r') as read_f:
         lines=read_f.readlines()
     with open(outLogFile,'w') as write_f:
@@ -34,14 +32,3 @@ def preprocessLog(inLogFile,outLogFile):
                 #print(modified)
                 write_f.write(modified)
             
-
-#if __name__=="__main__":
-#    logInFilePth = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs"
-#    logInFileName = "1application_1568810042014_190734.csv"
-#    logOutFilePth = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs"
-#    logOutFileName = "2application_1568810042014_190734_processed.csv"
-#    
-#    fullInLogFileName=os.path.join(logInFilePth,logInFileName)
-#    fullOutLogFileName=os.path.join(logOutFilePth,logOutFileName)
-#    
-#    preprocessLog(fullInLogFileName,fullOutLogFileName)

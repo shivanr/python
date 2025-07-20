@@ -17,12 +17,12 @@ def read_cofig(confFile):
         confData = yaml.load(ConfigFile)
     return confData
 
-confs = read_cofig(r"C:\user_folder\code\la_configs.yml")
+confs = read_cofig(r"C:\your_folder\code\la_configs.yml")
 
 rawFilePath = confs["file_dir_path"]["raw_path"]                                
 rawFileName = "1application_1568810042014_225439.log"
 logCsvFilePath = confs["file_dir_path"]["csv_path"]                             
-logCsvFileName = rawFileName.split(".")[0]+".csv"                               
+logCsvFileName = rawFileName.split(".")[0]+".csv"                 
 
 
 fullrawFileName=os.path.join(rawFilePath,rawFileName)
@@ -31,16 +31,15 @@ read_yarnlog(fullrawFileName,fullcsvFileName)
 
 ####################### Processsed Logs  ######################################
 
-processedFilePth = confs["file_dir_path"]["processed_path"]                     #r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\data\processted_logs"
+processedFilePth = confs["file_dir_path"]["processed_path"]                  
 processedFileName=logCsvFileName
 fullprocessedFileName=os.path.join(processedFilePth,processedFileName)
 preprocessLog(fullcsvFileName,fullprocessedFileName)
 
 ####################### Recommendation Engin  #################################
 
-#DBFullPath=r'C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs\rdb.csv'
-toBeAnalyzed=confs["file_dir_path"]["toBeAnalyzed"]                             #r'C:\Users\sreddy\OneDrive - MerckGroup\New folder\data\tobeanalyzed'
-
+#DBFullPath=r'C:\your_folder\process_logs\rdb.csv'
+toBeAnalyzed=confs["file_dir_path"]["toBeAnalyzed"]                             
 #fullprocessedFileName=os.path.join(processedFilePth,processedFileName)
 
 logDf=read_logfile(fullprocessedFileName)
@@ -52,10 +51,10 @@ vectorizer = TfidfVectorizer(binary=False,ngram_range = (1,10),use_idf = True,ma
 
 #kbVecDf = vectorizer.fit_transform(kbDf['message'])
 
-pem_file=r"C:\installed\deda1x3263_ES-SB.pem"
-host_name='deda1x3263.merckgroup.com'
-username='aa-nlp'
-password='aa-nlp'
+pem_file=r"C:\installed\your-pem-SB.pem"
+host_name='your_host
+username='user'
+password='password'
 es=elastic_utils(pem_file,host_name,username,password)
 elasticSession=es.connect_elasticsearch()
 

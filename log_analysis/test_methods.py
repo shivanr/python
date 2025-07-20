@@ -1,6 +1,6 @@
 from elastic_utils import elastic_utils
 
-pem_file=r"C:\installed\deda1x3263_ES-SB.pem"
+pem_file=r"C:\installed\your_pem-SB.pem"
 host_name='deda1x3263.merckgroup.com'
 username='aa-nlp'
 password='aa-nlp'
@@ -18,8 +18,8 @@ elasticSession.index(index="unresolved_errors", doc_type="_doc", body={"ERR_MESS
 import email_util as eu
 port = 25 
 smtp_server = "smtpgw.merckgroup.com"
-log_file= r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\data\raw_logs\1application_1568810042014_190726.log"
-email_conf = eu.read_cofig(r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\code\project_email_contact_list.yml")
+log_file= r"C:\Users\your_folders\1application_1568810042014_190726.log"
+email_conf = eu.read_cofig(r"C:\Users\your_folder\code\project_email_contact_list.yml")
 #email_conf["test_project"]
 mail_body   = eu.prepair_email(email_conf["test_project"],"Test Error","test"," Some Solutions")
 mail_with_attachment = eu.attach_file(log_file,mail_body)
@@ -33,7 +33,7 @@ else:
     
 #======================================================================= 
 
-log_file_path=r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\data\la_runlog.log"
+log_file_path=r"C:\Users\your_folder\data\la_runlog.log"
 
 import logging
 logging.basicConfig(filename=log_file_path,level=logging.DEBUG,format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')

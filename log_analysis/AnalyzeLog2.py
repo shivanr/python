@@ -10,9 +10,9 @@ from readYarnLog import read_yarnlog
 from recomendationEngin1 import read_logfile,read_kb,dedupError,findSimilarity,isSimilarityNotFound,recomendSolution
 
 
-rawFilePath = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\data\raw_logs"
+rawFilePath = r"C:\your_folder\data\raw_logs"
 rawFileName = "1application_1568810042014_225439.log"
-logCsvFilePath = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\data\csv_logs"
+logCsvFilePath = r"C:\your_folder\data\csv_logs"
 logCsvFileName = "1application_1568810042014_225439.csv"
 
 fullrawFileName=os.path.join(rawFilePath,rawFileName)
@@ -23,7 +23,7 @@ read_yarnlog(fullrawFileName,fullcsvFileName)
 
 ####################### Processsed Logs  ######################################
 
-processedFilePth = r"C:\Users\sreddy\OneDrive - MerckGroup\New folder\data\processted_logs"
+processedFilePth = r"C:\your_folder\data\processted_logs"
 #processedFileName = "application_1568810042014_190518.csv"
 processedFileName=logCsvFileName
 
@@ -34,8 +34,8 @@ preprocessLog(fullcsvFileName,fullprocessedFileName)
 ####################### Recommendation Engin  #################################
 
 
-DBFullPath=r'C:\Users\sreddy\OneDrive - MerckGroup\New folder\process_logs\rdb.csv'
-toBeAnalyzed=r'C:\Users\sreddy\OneDrive - MerckGroup\New folder\tobeanalyzed'
+DBFullPath=r'C:\your_folder\process_logs\rdb.csv'
+toBeAnalyzed=r'C:\your_folder\tobeanalyzed'
 
 #fullprocessedFileName=os.path.join(processedFilePth,processedFileName)
 
