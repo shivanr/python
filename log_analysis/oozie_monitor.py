@@ -11,23 +11,9 @@ import pandas as pd
 import subprocess
 
 url = "https://your_host/oozie/v1/jobs?len=5&filter=status%3DKILLED&order=desc"
-url2 = "https://your_host.mcloud.merckgroup.com:11443/oozie/v2/job/"
+url2 = "https://your_host:11443/oozie/v2/job/"
 urllib3.disable_warnings()
 http = urllib3.PoolManager()
-"""
-headers = urllib3.util.make_headers(basic_auth='auth_id1111')
-#'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Oauth abcde'}
-#urllib3.util.make_headers(basic_auth='user_id@91')
-print(headers)
-r = http.request('GET', url, preload_content=False,headers = headers )
-print(r.status)
-data = r.data
-print(data)
-
-headers={'content-type': "application/json"}
-res = requests.get(url = url , headers=headers, auth=('user_id','91') ,verify=False)
-print(res)
-"""
 
 res = "curl --negotiate -u user_id:'91' {0}".format(url)
 out = subprocess.check_output(res ,shell = True)

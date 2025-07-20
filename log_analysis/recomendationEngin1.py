@@ -59,11 +59,11 @@ def insert_error(elastic_object, index_name, doc):
         return is_stored
 
 def connect_elasticsearch():
-    pem_file=r"C:\installed\deda1x3263_ES-SB.pem"
+    pem_file=r"C:\installed\pem-SB.pem"
     context_dev = create_default_context(cafile=pem_file)
-    host_name='deda1x3263.merckgroup.com'
-    username='aa-nlp'
-    password='aa-nlp'
+    host_name='host_name'
+    username='username'
+    password='password'
     es = Elasticsearch([host_name],http_auth=(username, password), scheme="https",port=9200, ssl_context=context_dev, timeout=50, max_retries=5, retry_on_timeout=True)
     if es.ping():
         print('Yay Connected')

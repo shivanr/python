@@ -1,9 +1,9 @@
 from elastic_utils import elastic_utils
 
 pem_file=r"C:\installed\your_pem-SB.pem"
-host_name='deda1x3263.merckgroup.com'
-username='aa-nlp'
-password='aa-nlp'
+host_name='host_name'
+username='username'
+password='password'
 es=elastic_utils(pem_file,host_name,username,password)
 elasticSession=es.connect_elasticsearch()
 elasticSession
@@ -17,7 +17,7 @@ elasticSession.index(index="unresolved_errors", doc_type="_doc", body={"ERR_MESS
 #=======================================================================
 import email_util as eu
 port = 25 
-smtp_server = "smtpgw.merckgroup.com"
+smtp_server = "smtp server"
 log_file= r"C:\Users\your_folders\1application_1568810042014_190726.log"
 email_conf = eu.read_cofig(r"C:\Users\your_folder\code\project_email_contact_list.yml")
 #email_conf["test_project"]

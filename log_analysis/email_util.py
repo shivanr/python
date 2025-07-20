@@ -80,7 +80,7 @@ def send_mail(smtpHost,port,email_conf,errorMessage=None,rootCause=None,solution
                 mail_body = attach_file(logFile,mail_body)
         print(mail_body.as_string())    
         with smtplib.SMTP(smtpHost, port) as smtp_connection:
-            smtp_connection = smtplib.SMTP('smtpgw.merckgroup.com', 25)
+            smtp_connection = smtplib.SMTP('smtpgw.host_name', 25)
             smtp_connection.starttls()
             smtp_connection.sendmail(email_conf["From"],email_conf["To"], mail_body.as_string()) 
     except (gaierror, ConnectionRefusedError):
